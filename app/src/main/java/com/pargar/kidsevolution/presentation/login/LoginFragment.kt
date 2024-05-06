@@ -21,6 +21,7 @@ class LoginFragment : Fragment() {
 
     private val viewModel: LoginViewModel by viewModels()
 
+    //acceder a las vistas y recursos definidos en el diseño del fragmento y para interactuar con ellos en el código del fragmento.
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,7 +33,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initObservers()
         initListeners()
     }
@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
             when(state) {
                 is Resource.Success -> {
                     handleLoading(isLoading = false)
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_juegoParejasFragment)
                 }
                 is Resource.Error -> {
                     handleLoading(isLoading = false)

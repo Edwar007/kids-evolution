@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_passwordRecoveryFragment"
+            app:destination="@id/passwordRecoveryFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_juegoParejasFragment"
+            app:destination="@id/juegoParejas" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -27,4 +33,14 @@
         android:name="com.pargar.kidsevolution.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/passwordRecoveryFragment"
+        android:name="com.pargar.kidsevolution.presentation.password_recovery.PasswordRecoveryFragment"
+        android:label="fragment_password_recovery"
+        tools:layout="@layout/fragment_password_recovery" />
+    <activity
+        android:id="@+id/juegoParejas"
+        android:name="com.pargar.kidsevolution.presentation.game.JuegoParejas"
+        android:label="fragment_juego_parejas"
+        tools:layout="@layout/fragment_juego_parejas" />
 </navigation>
