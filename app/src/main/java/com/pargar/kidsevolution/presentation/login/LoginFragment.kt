@@ -18,7 +18,6 @@ class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-
     private val viewModel: LoginViewModel by viewModels()
 
     //acceder a las vistas y recursos definidos en el diseño del fragmento y para interactuar con ellos en el código del fragmento.
@@ -42,7 +41,7 @@ class LoginFragment : Fragment() {
             when(state) {
                 is Resource.Success -> {
                     handleLoading(isLoading = false)
-                    findNavController().navigate(R.id.action_loginFragment_to_juegoParejasFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                 }
                 is Resource.Error -> {
                     handleLoading(isLoading = false)
@@ -62,6 +61,7 @@ class LoginFragment : Fragment() {
         with(binding) {
             bLogin.setOnClickListener { handleLogin() }
             bSignUp.setOnClickListener { findNavController().navigate(R.id.action_loginFragment_to_signUpFragment) }
+            bPasswordRecovery.setOnClickListener{findNavController().navigate(R.id.action_loginFragment_to_passwordRecoveryFragment)}
         }
     }
 
