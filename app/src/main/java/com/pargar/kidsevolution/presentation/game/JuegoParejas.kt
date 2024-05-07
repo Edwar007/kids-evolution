@@ -57,6 +57,7 @@ class JuegoParejas : AppCompatActivity() {
 
     private lateinit var contenedorImagenes: LinearLayout
     private lateinit var imagenesClickadas: ArrayList<ImageView>
+    private lateinit var btnBack:ImageButton
     private lateinit var btnReset:Button
     private lateinit var btnMusica: ImageButton
     private val handler = Handler(Looper.getMainLooper())
@@ -76,6 +77,12 @@ class JuegoParejas : AppCompatActivity() {
         contenedorImagenes = findViewById(R.id.imageContainer)
 
         imagenesClickadas = ArrayList()
+
+        btnBack = findViewById(R.id.bBack)
+        btnBack.setOnClickListener{
+            gestionarMusicaFondo()
+            finish()
+        }
 
         btnReset = findViewById(R.id.btnReset)
         btnReset.setOnClickListener{resetear()}
@@ -104,13 +111,13 @@ class JuegoParejas : AppCompatActivity() {
     }
 
     private fun gestionarMusicaFondo() {
-        if (!bgSong.isPlaying){
-            btnMusica.setImageResource(R.drawable.sound_on)
-            bgSong.start()
-        }else{
-            btnMusica.setImageResource(R.drawable.sound_off)
-            bgSong.pause()
-        }
+            if (!bgSong.isPlaying){
+                btnMusica.setImageResource(R.drawable.sound_on)
+                bgSong.start()
+            }else{
+                btnMusica.setImageResource(R.drawable.sound_off)
+                bgSong.pause()
+            }
     }
 
     private fun handleClick(image:ImageView){

@@ -21,6 +21,18 @@ class PasswordRecoveryFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initListeners()
+    }
+
+    private fun initListeners() {
+        with(binding) {
+            bBack.setOnClickListener{activity?.onBackPressed()}
+        }
+    }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

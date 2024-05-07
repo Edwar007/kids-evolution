@@ -31,6 +31,7 @@ class HomeFragment : Fragment() {
 
     private fun initListeners() {
         with(binding) {
+            bBack.setOnClickListener{activity?.onBackPressed()}
             bPlay.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_juegoParejasFragment)}
         }
     }
