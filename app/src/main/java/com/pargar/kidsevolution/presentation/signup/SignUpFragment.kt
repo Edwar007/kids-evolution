@@ -65,6 +65,7 @@ class SignUpFragment : Fragment() {
 
     private fun initListeners() {
         with(binding) {
+            bBack.setOnClickListener{activity?.onBackPressed()}
             bSignUp.setOnClickListener {
                 handleSignUp()
             }
