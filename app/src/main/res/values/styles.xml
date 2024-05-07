@@ -3,4 +3,10 @@
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
         <item name="cornerSize">50%</item>
     </style>
+    <style name="TextoCursiva">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
 </resources>
