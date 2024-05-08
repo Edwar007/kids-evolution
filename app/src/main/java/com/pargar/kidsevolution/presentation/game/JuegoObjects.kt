@@ -11,44 +11,44 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.view.get
-import com.pargar.kidsevolution.databinding.FragmentJuegoParejasBinding
+import com.pargar.kidsevolution.databinding.FragmentJuegoObjectsBinding
 import com.pargar.kidsevolution.databinding.FichasBinding
 import com.pargar.kidsevolution.R
 import android.view.View
 
-class JuegoParejas : AppCompatActivity() {
+class JuegoObjects : AppCompatActivity() {
     /*
      * TODO cancion cuando ganas
      * registrar actividad en el manifest
      */
 
-    private lateinit var binding: FragmentJuegoParejasBinding
+    private lateinit var binding: FragmentJuegoObjectsBinding
     private lateinit var bindingFichas: FichasBinding
     //cada vez que se inicie la app, la variable que refleja la cantidad de clicks que se han hecho vuelve a 0
     private val CANTIDAD_COLUMNAS:Int = 4
 
     private val nombreFrutasMap = mapOf(
-        R.drawable.manzana to "manzana",
-        R.drawable.pera to "pera",
-        R.drawable.fresa to "fresa",
-        R.drawable.mora to "mora",
-        R.drawable.banano to "banano",
-        R.drawable.naranja to "naranja"
+        R.drawable.balon to "balon",
+        R.drawable.globo to "globo",
+        R.drawable.mesa to "mesa",
+        R.drawable.carro to "carro",
+        R.drawable.silla to "silla",
+        R.drawable.celular to "celular"
     )
 
     private var imageList = listOf(
-        R.drawable.manzana,
-        R.drawable.pera,
-        R.drawable.fresa,
-        R.drawable.mora,
-        R.drawable.banano,
-        R.drawable.naranja,
-        R.drawable.manzana,
-        R.drawable.pera,
-        R.drawable.fresa,
-        R.drawable.mora,
-        R.drawable.banano,
-        R.drawable.naranja
+        R.drawable.balon,
+        R.drawable.globo,
+        R.drawable.mesa,
+        R.drawable.carro,
+        R.drawable.silla,
+        R.drawable.celular,
+        R.drawable.balon,
+        R.drawable.globo,
+        R.drawable.mesa,
+        R.drawable.carro,
+        R.drawable.silla,
+        R.drawable.celular
     ).shuffled()
 
     //Separo la lista de imagenes en listas que contengan la misma cantidad de fotos que de columnas haya
@@ -71,7 +71,7 @@ class JuegoParejas : AppCompatActivity() {
         bgSong.isLooping = true
         bgSong.setVolume(0.1F,0.1F)
 
-        binding = FragmentJuegoParejasBinding.inflate(layoutInflater)
+        binding = FragmentJuegoObjectsBinding.inflate(layoutInflater)
         bindingFichas = FichasBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
