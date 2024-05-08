@@ -31,8 +31,14 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_juegoParejasFragment"
-            app:destination="@id/juegoParejas" />
+            android:id="@+id/action_homeFragment_to_juegoAnimalsFragment"
+            app:destination="@id/juegoAnimals" />
+        <action
+            android:id="@+id/action_homeFragment_to_juegoFruitsFragment"
+            app:destination="@id/juegoFruits" />
+        <action
+            android:id="@+id/action_homeFragment_to_juegoObjectsFragment"
+            app:destination="@id/juegoObjects" />
     </fragment>
     <fragment
         android:id="@+id/passwordRecoveryFragment"
@@ -40,8 +46,18 @@
         android:label="fragment_password_recovery"
         tools:layout="@layout/fragment_password_recovery" />
     <activity
-        android:id="@+id/juegoParejas"
-        android:name="com.pargar.kidsevolution.presentation.game.JuegoParejas"
-        android:label="fragment_juego_parejas"
-        tools:layout="@layout/fragment_juego_parejas" />
+        android:id="@+id/juegoAnimals"
+        android:name="com.pargar.kidsevolution.presentation.game.JuegoAnimals"
+        android:label="fragment_juego_animals"
+        tools:layout="@layout/fragment_juego_animals" />
+    <activity
+        android:id="@+id/juegoFruits"
+        android:name="com.pargar.kidsevolution.presentation.game.JuegoFruits"
+        android:label="fragment_juego_fruits"
+        tools:layout="@layout/fragment_juego_fruits" />
+    <activity
+        android:id="@+id/juegoObjects"
+        android:name="com.pargar.kidsevolution.presentation.game.JuegoObjects"
+        android:label="fragment_juego_objects"
+        tools:layout="@layout/fragment_juego_objects" />
 </navigation>
