@@ -14,6 +14,7 @@ import androidx.core.view.get
 import com.pargar.kidsevolution.databinding.FragmentJuegoParejasBinding
 import com.pargar.kidsevolution.databinding.FichasBinding
 import com.pargar.kidsevolution.R
+import android.view.View
 
 class JuegoParejas : AppCompatActivity() {
     /*
@@ -50,7 +51,6 @@ class JuegoParejas : AppCompatActivity() {
         R.drawable.naranja
     ).shuffled()
 
-
     //Separo la lista de imagenes en listas que contengan la misma cantidad de fotos que de columnas haya
     //cada sublista representa una fila en la interfaz
     private var listOfLists: List<List<Int>> = imageList.chunked(CANTIDAD_COLUMNAS)
@@ -62,6 +62,7 @@ class JuegoParejas : AppCompatActivity() {
     private lateinit var btnMusica: ImageButton
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var bgSong:MediaPlayer
+    private lateinit var imagen : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,10 +81,11 @@ class JuegoParejas : AppCompatActivity() {
 
         btnBack = findViewById(R.id.bBack)
         btnBack.setOnClickListener{
-            gestionarMusicaFondo()
+            bgSong.pause()
             finish()
         }
 
+        imagen = findViewById(R.id.congratulation)
         btnReset = findViewById(R.id.btnReset)
         btnReset.setOnClickListener{resetear()}
         btnMusica = findViewById(R.id.btnSonido)
@@ -151,35 +153,9 @@ class JuegoParejas : AppCompatActivity() {
                 imagenesClickadas.clear()
             }
             if (hayVictoria()){
-                sonido("good_ending")
-                sonido("good_ending")
-                sonido("good_ending")
-
-                /*
-                val mensajeFinal:String
-                val puntuacionJ1:Int = txtJ1.text[txtJ1.text.length-1].digitToInt()
-                val puntuacionJ2:Int = txtJ2.text[txtJ2.text.length-1].digitToInt()
-                mensajeFinal = if(puntuacionJ1>puntuacionJ2){
-                    "Ha ganado el J1 con $puntuacionJ1 puntos"
-                }else if(puntuacionJ1 == puntuacionJ2){
-                    "EMPATE"
-                }else{
-                    "Ha ganado el J2 con $puntuacionJ2 puntos"
-                }
-                //después de que suene el sonido de victoria sale una ventana emergente
-                val builder = AlertDialog.Builder(this)
-                // mostramos el resultado final de los dos jugadores
-                builder.setMessage(mensajeFinal)
-                    .setPositiveButton("Reiniciar") { dialog, id ->
-                        resetear()
-                    }
-                    .setNegativeButton("Salir") { dialog, id ->
-                        exitProcess(0)
-                    }
-                builder.create().show()
-                */
+                congratulation()
             }
-        },1000)
+        },700)
     }
 
     private fun sonido(soundToPlay: String) {
@@ -187,13 +163,9 @@ class JuegoParejas : AppCompatActivity() {
         val idResource:Int = resources.getIdentifier(soundToPlay,"raw",packageName)
         //hago sonarlo pasando el id del recurso
         val sound:MediaPlayer = MediaPlayer.create(this,idResource)
-
-        if(soundToPlay.equals("bad_ending") || soundToPlay.equals("good_ending")){
-            sound.setVolume(0.2F,0.2F)
-        }else{
-            sound.setVolume(0.7F,0.7F)
-        }
+        sound.setVolume(1.0F,1.0F)
         sound.start()
+
         //hago que cuando haya terminado de sonar, pare y libere recursos
         sound.setOnCompletionListener {
             it.stop()
@@ -223,6 +195,19 @@ class JuegoParejas : AppCompatActivity() {
             }
         }
         return victoria
+    }
+
+    private fun congratulation(){
+        imagen.visibility = View.VISIBLE
+        this.bgSong.pause()
+        sonido("win")
+        Handler().postDelayed({
+            // Hacer invisible
+            bgSong.start()
+            imagen.visibility = View.INVISIBLE
+
+        }, 4000)
+        resetear()
     }
 
     private fun resetear(){

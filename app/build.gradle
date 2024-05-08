@@ -81,4 +81,6 @@ dependencies {
 
     //Coroutines - Firebase
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.1'
+
+    implementation("androidx.cardview:cardview:1.0.0")
 }

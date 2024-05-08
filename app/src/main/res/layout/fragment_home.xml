@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,11 +15,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="-188dp"
-        android:layout_marginTop="-85dp"
+        android:layout_marginTop="-70dp"
+        android:layout_marginBottom="70dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:baselineAligned="false"
         android:padding="8dp"
-        android:layout_marginBottom="50dp"
         android:src="@drawable/ic_back_arrow" />
 
     <LinearLayout
@@ -34,29 +35,53 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:gravity="center"
-            android:text="MATCHING FRUITS"
+            android:text="MATCHING"
             android:textColor="@color/black"
             android:textSize="60sp"
             android:textStyle="bold|italic" />
 
         <ImageView
             android:id="@+id/logo_img"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="257dp"
+            android:layout_height="260dp"
             android:layout_gravity="center"
             android:layout_margin="2dp"
-            android:src="@drawable/logo_juego" />
+            android:src="@drawable/logo_juego2"/>
 
         <Button
-            android:id="@+id/bPlay"
+            android:id="@+id/bPlayFruits"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="15dp"
-            android:background="@drawable/boton_one"
-            android:padding="15dp"
-            android:text="play"
+            android:backgroundTint="#2196F3"
+            android:padding="10dp"
+            android:text="play friuts"
             android:textColor="@color/black"
-            android:textSize="32sp" />
+            android:textSize="20sp" />
+
+
+        <Button
+            android:id="@+id/bPlayAnimals"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:backgroundTint="#8BC34A"
+            android:padding="10dp"
+            android:text="play animals"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bPlayObject"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:backgroundTint="#FF5722"
+            android:padding="10dp"
+            android:text="play objects"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
     </LinearLayout>
 
 </LinearLayout>
