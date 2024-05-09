@@ -1,7 +1,7 @@
-package com.pargar.kidsevolution.di
+package com.pargar.kidsevolution.model.di
 
-import com.pargar.kidsevolution.data.remote.FirebaseAuthRepositoryImpl
-import com.pargar.kidsevolution.domain.repository.AuthRepository
+import com.pargar.kidsevolution.model.remote.FirebaseAuthRepositoryImpl
+import com.pargar.kidsevolution.model.domain.repository.AuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -1,8 +1,8 @@
-package com.pargar.kidsevolution.domain.usecase
+package com.pargar.kidsevolution.model.domain.usecase
 
 import android.util.Patterns
-import com.pargar.kidsevolution.domain.repository.AuthRepository
-import com.pargar.kidsevolution.util.Resource
+import com.pargar.kidsevolution.model.domain.repository.AuthRepository
+import com.pargar.kidsevolution.model.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

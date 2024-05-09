@@ -1,4 +1,4 @@
-package com.pargar.kidsevolution.presentation.game
+package com.pargar.kidsevolution.view
 
 import android.content.res.Configuration
 import android.media.MediaPlayer

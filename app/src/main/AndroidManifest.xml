@@ -27,17 +27,17 @@
         </activity>
 
         <activity
-            android:name=".presentation.game.JuegoAnimals"
+            android:name=".view.JuegoAnimals"
             android:exported="true">
         </activity>
 
         <activity
-            android:name=".presentation.game.JuegoFruits"
+            android:name=".view.JuegoFruits"
             android:exported="true">
         </activity>
 
         <activity
-            android:name=".presentation.game.JuegoObjects"
+            android:name=".view.JuegoObjects"
             android:exported="true">
         </activity>
     </application>

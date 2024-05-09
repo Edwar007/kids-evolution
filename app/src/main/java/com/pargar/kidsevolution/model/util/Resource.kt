@@ -1,4 +1,4 @@
-package com.pargar.kidsevolution.util
+package com.pargar.kidsevolution.model.util
 
 sealed class Resource <out R> {
     data class Success<out T>(val data: T): Resource<T>()
