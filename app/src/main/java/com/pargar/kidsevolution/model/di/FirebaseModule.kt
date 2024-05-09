@@ -1,4 +1,4 @@
-package com.pargar.kidsevolution.di
+package com.pargar.kidsevolution.model.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

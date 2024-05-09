@@ -1,11 +1,11 @@
-package com.pargar.kidsevolution.presentation.signup
+package com.pargar.kidsevolution.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pargar.kidsevolution.domain.usecase.FirebaseSignUpUseCase
-import com.pargar.kidsevolution.util.Resource
+import com.pargar.kidsevolution.model.domain.usecase.FirebaseSignUpUseCase
+import com.pargar.kidsevolution.model.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

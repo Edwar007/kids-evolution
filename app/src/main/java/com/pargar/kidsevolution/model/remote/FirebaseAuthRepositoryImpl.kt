@@ -1,14 +1,15 @@
-package com.pargar.kidsevolution.data.remote
+package com.pargar.kidsevolution.model.remote
 
 import android.util.Log
-import com.pargar.kidsevolution.domain.repository.AuthRepository
+import com.pargar.kidsevolution.model.domain.repository.AuthRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-class FirebaseAuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseAuth ): AuthRepository {
+class FirebaseAuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseAuth ):
+    AuthRepository {
 
 
     override suspend fun login(email: String, password: String): Boolean {
@@ -38,7 +39,7 @@ class FirebaseAuthRepositoryImpl @Inject constructor(private val firebaseAuth: F
             if (isSuccessful){
                 val map = mutableMapOf<String, String>()
                 map["Correo"] = email
-                map["Contraseña"] = password
+                //map["Contraseña"] = password
                 var id = firebaseAuth.currentUser.uid
                 mData.child("Users").child(id).setValue(map)
             }

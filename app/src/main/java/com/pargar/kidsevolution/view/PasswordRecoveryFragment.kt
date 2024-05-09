@@ -1,17 +1,15 @@
-package com.pargar.kidsevolution.presentation.home
+package com.pargar.kidsevolution.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.pargar.kidsevolution.R
-import com.pargar.kidsevolution.databinding.FragmentHomeBinding
+import com.pargar.kidsevolution.databinding.FragmentPasswordRecoveryBinding
 
-class HomeFragment : Fragment() {
+class PasswordRecoveryFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentPasswordRecoveryBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -19,7 +17,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentPasswordRecoveryBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -28,15 +26,12 @@ class HomeFragment : Fragment() {
         initListeners()
     }
 
-
     private fun initListeners() {
         with(binding) {
             bBack.setOnClickListener{activity?.onBackPressed()}
-            bPlayFruits.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_juegoFruitsFragment)}
-            bPlayAnimals.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_juegoAnimalsFragment)}
-            bPlayObject.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_juegoObjectsFragment)}
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

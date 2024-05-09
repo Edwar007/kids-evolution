@@ -1,4 +1,4 @@
-package com.pargar.kidsevolution.presentation.login
+package com.pargar.kidsevolution.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.pargar.kidsevolution.R
 import com.pargar.kidsevolution.databinding.FragmentLoginBinding
-import com.pargar.kidsevolution.util.Resource
+import com.pargar.kidsevolution.model.util.Resource
+import com.pargar.kidsevolution.viewModel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

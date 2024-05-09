@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.pargar.kidsevolution.presentation.login.LoginFragment"
+        android:name="com.pargar.kidsevolution.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -22,12 +22,12 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.pargar.kidsevolution.presentation.signup.SignUpFragment"
+        android:name="com.pargar.kidsevolution.view.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.pargar.kidsevolution.presentation.home.HomeFragment"
+        android:name="com.pargar.kidsevolution.view.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -42,22 +42,22 @@
     </fragment>
     <fragment
         android:id="@+id/passwordRecoveryFragment"
-        android:name="com.pargar.kidsevolution.presentation.password_recovery.PasswordRecoveryFragment"
+        android:name="com.pargar.kidsevolution.view.PasswordRecoveryFragment"
         android:label="fragment_password_recovery"
         tools:layout="@layout/fragment_password_recovery" />
     <activity
         android:id="@+id/juegoAnimals"
-        android:name="com.pargar.kidsevolution.presentation.game.JuegoAnimals"
+        android:name="com.pargar.kidsevolution.view.JuegoAnimals"
         android:label="fragment_juego_animals"
         tools:layout="@layout/fragment_juego_animals" />
     <activity
         android:id="@+id/juegoFruits"
-        android:name="com.pargar.kidsevolution.presentation.game.JuegoFruits"
+        android:name="com.pargar.kidsevolution.view.JuegoFruits"
         android:label="fragment_juego_fruits"
         tools:layout="@layout/fragment_juego_fruits" />
     <activity
         android:id="@+id/juegoObjects"
-        android:name="com.pargar.kidsevolution.presentation.game.JuegoObjects"
+        android:name="com.pargar.kidsevolution.view.JuegoObjects"
         android:label="fragment_juego_objects"
         tools:layout="@layout/fragment_juego_objects" />
 </navigation>

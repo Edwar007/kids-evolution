@@ -1,4 +1,4 @@
-package com.pargar.kidsevolution.presentation.signup
+package com.pargar.kidsevolution.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.pargar.kidsevolution.R
 import com.pargar.kidsevolution.databinding.FragmentSignUpBinding
-import com.pargar.kidsevolution.util.Resource
+import com.pargar.kidsevolution.model.util.Resource
+import com.pargar.kidsevolution.viewModel.SignUpViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.pargar.kidsevolution.domain.repository
+package com.pargar.kidsevolution.model.domain.repository
 
 interface AuthRepository {
 
