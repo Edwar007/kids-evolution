@@ -76,8 +76,14 @@ class SignUpFragment : Fragment() {
     private fun handleSignUp() {
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
+        val nomPadre = binding.txtnombre.text.toString()
+        val nomHijo = binding.txtnombreNiO.text.toString()
+        val apellidos = binding.txtapellido.text.toString()
+        val cedula = binding.txtcedula.text.toString()
+        val telefono = binding.txttelefono.text.toString()
+        val edad = binding.txtEdad.text.toString()
 
-        viewModel.signUp(email, password)
+        viewModel.signUp(email, password, nomPadre, nomHijo, apellidos, cedula, telefono,edad)
     }
 
     private fun handleLoading(isLoading: Boolean) {

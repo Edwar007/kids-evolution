@@ -27,26 +27,39 @@ class FirebaseAuthRepositoryImpl @Inject constructor(private val firebaseAuth: F
         }
     }
 
-    override suspend fun signUp(email: String, password: String): Boolean {
+    override suspend fun signUp(
+        email: String, password: String, nomPadre: String, nomHijo: String,
+        apellidos: String, cedula: String, telefono: String, edad: String
+    ): Boolean {
         return try {
             var isSuccessful: Boolean = false
-            var mData: DatabaseReference
-            mData = FirebaseDatabase.getInstance().getReference()
+            val mData: DatabaseReference = FirebaseDatabase.getInstance().getReference()
 
             firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { isSuccessful = it.isSuccessful}
+                .addOnCompleteListener { task ->
+                    isSuccessful = task.isSuccessful
+                }
                 .await()
-            if (isSuccessful){
+
+            if (isSuccessful) {
                 val map = mutableMapOf<String, String>()
                 map["Correo"] = email
-                //map["Contraseña"] = password
-                var id = firebaseAuth.currentUser.uid
-                mData.child("Users").child(id).setValue(map)
+                map["NombrePadre"] = nomPadre
+                map["NombreHijo"] = nomHijo
+                map["Apellidos"] = apellidos
+                map["Cedula"] = cedula
+                map["Telefono"] = telefono
+                map["Edad"] = edad
+
+                val userId = firebaseAuth.currentUser?.uid
+                userId?.let { uid ->
+                    mData.child("Users").child(uid).setValue(map)
+                }
             }
             isSuccessful
-
         } catch (e: Exception) {
             false
         }
     }
+
 }

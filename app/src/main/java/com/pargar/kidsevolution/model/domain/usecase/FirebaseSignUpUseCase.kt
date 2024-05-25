@@ -11,22 +11,45 @@ class FirebaseSignUpUseCase @Inject constructor(
     private val authRepository: AuthRepository
 ) {
 
-    suspend operator fun invoke(email: String, password: String): Flow<Resource<Boolean>> = flow {
+    suspend operator fun invoke(
+        email: String, password: String, nomPadre: String, nomHijo: String,
+        apellidos: String, cedula: String, telefono: String, edad: String
+    ): Flow<Resource<Boolean>> = flow {
         emit(Resource.Loading)
         try {
-            if (isValidEmail(email)) {
-                if (isValidPassword(password)) {
-                    val isSignUpSuccessfully = authRepository.signUp(email, password)
-                    if (isSignUpSuccessfully) {
-                        emit(Resource.Success(true))
+            if (isValidName(nomPadre) && isValidName(nomHijo)) {
+                if (isValidApellidos(apellidos)) {
+                    if (isValidCedula(cedula)) {
+                        if (isValidTelefono(telefono)) {
+                            if (isValidEdad(edad)) {
+                                if (isValidEmail(email)) {
+                                    if (isValidPassword(password)) {
+                                        val isSignUpSuccessfully = authRepository.signUp(email, password, nomPadre, nomHijo, apellidos, cedula, telefono, edad)
+                                        if (isSignUpSuccessfully) {
+                                            emit(Resource.Success(true))
+                                        } else {
+                                            emit(Resource.Error("Fallo en el registro. Por favor inténtelo más tarde."))
+                                        }
+                                    } else {
+                                        emit(Resource.Error("Formato de contraseña inválido. La contraseña debe contener al menos 8 caracteres, 1 letra y un número."))
+                                    }
+                                } else {
+                                    emit(Resource.Error("Correo inválido"))
+                                }
+                            } else {
+                                emit(Resource.Error("La edad debe ser un número válido."))
+                            }
+                        } else {
+                            emit(Resource.Error("El teléfono debe ser un número válido."))
+                        }
                     } else {
-                        emit(Resource.Error("Fallo en el registro. Por favor inténtelo mas tarde."))
+                        emit(Resource.Error("La cédula debe ser un número válido."))
                     }
                 } else {
-                    emit(Resource.Error("Formato de contraseña. La contraseña debe contener al menos 8 caracteres, 1 letra y un número."))
+                    emit(Resource.Error("Los apellidos no pueden estar vacíos."))
                 }
             } else {
-                emit(Resource.Error("Correo inválido"))
+                emit(Resource.Error("Los nombres no pueden estar vacíos."))
             }
         } catch (e: Exception) {
             emit(Resource.Error("Error al registrarse: ${e.message}"))
@@ -44,6 +67,29 @@ class FirebaseSignUpUseCase @Inject constructor(
         return passwordPattern.matches(password)
     }
 
+    private fun isValidName(name: String): Boolean {
+        // Aquí puedes implementar la lógica para verificar si el nombre es válido
+        return name.isNotBlank()
+    }
 
+    private fun isValidApellidos(apellidos: String): Boolean {
+        // Aquí puedes implementar la lógica para verificar si los apellidos son válidos
+        return apellidos.isNotBlank()
+    }
+
+    private fun isValidCedula(cedula: String): Boolean {
+        // Aquí puedes implementar la lógica para verificar si la cédula es válida
+        return cedula.isNotBlank() && cedula.matches("\\d+".toRegex())
+    }
+
+    private fun isValidTelefono(telefono: String): Boolean {
+        // Aquí puedes implementar la lógica para verificar si el teléfono es válido
+        return telefono.isNotBlank() && telefono.matches("\\d+".toRegex())
+    }
+
+    private fun isValidEdad(edad: String): Boolean {
+        // Aquí puedes implementar la lógica para verificar si la edad es válida
+        return edad.isNotBlank() && edad.matches("\\d+".toRegex())
+    }
 }
 
