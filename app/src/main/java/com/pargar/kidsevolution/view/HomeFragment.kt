@@ -31,7 +31,6 @@ class HomeFragment : Fragment() {
 
     private fun initListeners() {
         with(binding) {
-            bBack.setOnClickListener{activity?.onBackPressed()}
             bPlayFruits.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_juegoFruitsFragment)}
             bPlayAnimals.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_juegoAnimalsFragment)}
             bPlayObject.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_juegoObjectsFragment)}
