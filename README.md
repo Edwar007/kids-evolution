@@ -58,4 +58,4 @@ La aplicación cuenta con un juego de **memoria por parejas**, en el cual los ni
 1. **Clona el repositorio**
 
 ```bash
-git clone https://github.com/tuusuario/kids-evolution.git
+git clone https://github.com/Edwar007/kids-evolution.git
